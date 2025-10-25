@@ -1,0 +1,98 @@
+/* services.css - professional styling and animations for services.php */
+:root{
+  --primary: #0b2140;
+  --accent-gold: #d4af37;
+  --muted: #6c757d;
+  --surface: #ffffff;
+  --glass: rgba(255,255,255,0.6);
+  --cta-light-bg: rgba(255,255,255,0.06);
+}
+
+/* Hero */
+.hero-services{
+  background: linear-gradient(180deg, rgba(11,33,64,0.92) 0%, rgba(16,24,40,0.85) 100%);
+  padding: 4.5rem 0;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.hero-services::after{
+  content: '';
+  position: absolute;
+  right: -120px;
+  bottom: -40px;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle at 30% 30%, rgba(212,175,55,0.12), transparent 30%);
+  transform: rotate(18deg);
+}
+.hero-services .display-4{ font-weight:700; letter-spacing:-0.6px; }
+.hero-services .lead{ color: rgba(255,255,255,0.92); }
+
+.btn-cta-light{
+  border-radius: 10px !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  padding: 0.85rem 1.25rem !important;
+  background: transparent !important;
+  color: #fff !important;
+  font-weight: 700;
+  transition: all 180ms ease;
+}
+.btn-cta-light:hover{ transform: translateY(-3px); box-shadow: 0 16px 36px rgba(11,33,64,0.28); }
+
+/* Service cards */
+.service-card{
+  background: linear-gradient(180deg, #ffffff 0%, #fbfbfb 100%);
+  border-radius: 14px;
+  padding: 1.6rem;
+  box-shadow: 0 10px 40px rgba(11,33,64,0.06);
+  transition: transform 260ms ease, box-shadow 260ms ease;
+  height: 100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.service-card.reveal{ opacity:0; transform: translateY(14px) scale(.997); }
+.service-card.is-visible{ opacity:1; transform: translateY(0) scale(1); }
+.service-card:hover{ transform: translateY(-8px); box-shadow: 0 26px 70px rgba(11,33,64,0.08); }
+
+.service-icon{
+  font-size: 2.2rem;
+  width:56px; height:56px; display:flex; align-items:center; justify-content:center;
+  border-radius:12px; color: #fff; background: linear-gradient(90deg, var(--accent-gold), #b8860b);
+  box-shadow: 0 8px 24px rgba(212,175,55,0.12);
+  margin-bottom: 1rem;
+}
+.service-title{ font-size:1.15rem; font-weight:700; color:var(--primary); margin-bottom: .6rem; }
+.service-description{ color:var(--muted); flex-grow:1; }
+.btn-quote{ background: linear-gradient(90deg, #12c7bd, #10b7a6); color:#fff; border:0; padding:.6rem .9rem; border-radius:10px; font-weight:700; margin-top:1rem; }
+.btn-quote:hover{ transform: translateY(-3px); box-shadow: 0 14px 36px rgba(16,185,166,0.12); }
+
+/* Process steps */
+.process-step{
+  background: #fff; border-radius:12px; padding:1.25rem; text-align:center; box-shadow: 0 12px 36px rgba(2,6,23,0.04); transition: transform 220ms ease;
+}
+.process-step .process-number{ width:56px; height:56px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; background: linear-gradient(90deg, #0d6efd, #10b7a6); color:#fff; font-weight:800; margin-bottom: .75rem; }
+.process-step:hover{ transform: translateY(-6px); }
+
+/* Modal & form polish */
+.modal-content{ border-radius: 12px; overflow: hidden; }
+.form-section{ background: #fff; border-radius: 10px; padding: 1rem; margin-bottom: 1rem; box-shadow: 0 8px 20px rgba(2,6,23,0.03); }
+.file-upload-area{ border:2px dashed rgba(11,33,64,0.06); padding:1rem; border-radius:10px; display:flex; align-items:center; gap:.75rem; color:var(--muted); }
+.file-upload-area i{ font-size:1.6rem; color:rgba(11,33,64,0.32); }
+
+/* Reveal base */
+.reveal{ opacity:0; transform: translateY(18px) scale(.995); transition: opacity 520ms ease, transform 520ms cubic-bezier(.2,.9,.2,1); }
+.reveal.is-visible{ opacity:1; transform: translateY(0) scale(1); }
+
+/* Responsive */
+@media (max-width: 768px){
+  .hero-services{ padding: 3rem 0; }
+  .service-title{ font-size:1.02rem; }
+}
+
+/* Accessibility focus states */
+.btn-quote:focus, .btn-cta-light:focus{ outline: none; box-shadow: 0 8px 28px rgba(16,185,166,0.14); }
+
+/* Small helpers for totals and previews */
+#filePreview img{ width:90px; height:90px; object-fit:cover; border-radius:8px; box-shadow: 0 6px 18px rgba(2,6,23,0.06); }

@@ -1,0 +1,26 @@
+﻿# Composer
+/vendor/
+/composer.lock
+
+# Logs and runtime
+/logs/
+/*.log
+
+# Environment
+.env
+
+# Uploads and generated
+/public/uploads/
+/resources/uploads/
+/public/izipay/logs/
+/izipay/logs/
+
+# OS & Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+node_modules/
+
+# Misc
+/.cache/

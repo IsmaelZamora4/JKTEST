@@ -1,0 +1,11 @@
+/* Utilities - Clases utilitarias */
+
+.shadow-soft {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.border-radius-lg {
+    border-radius: 15px;
+}
+
+

@@ -1,0 +1,23 @@
+# php_flag display_errors Off
+
+
+# Protege archivos sensibles (no accesibles desde public, pero por si acaso)
+<FilesMatch "^(keys\.php|config\.php|paths\.php)$">
+    Require all denied
+</FilesMatch>
+
+RewriteEngine On
+
+# Permite acceso directo a archivos y carpetas existentes
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Quita .php de la URL (opcional, si quieres acceder sin .php)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([a-zA-Z0-9\-_]+)/?$ $1.php [L]
+
+# Redirige todo lo demás a index.php para enrutamiento centralizado
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]

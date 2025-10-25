@@ -1,0 +1,72 @@
+:root{
+    --footer-bg-start: #0f1724;
+    --footer-bg-end: #1f2937;
+    --footer-accent: #f59e0b;
+    --footer-text: #e6eef6;
+}
+
+/* Mobile-first: collapsible sections */
+.footer-details {
+    background: transparent;
+}
+.footer-details summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.25rem 0;
+    font-size: 1rem;
+    color: var(--footer-text);
+}
+.footer-details summary::-webkit-details-marker{display:none}
+.footer-details summary:after{
+    content: '\25BC'; /* down caret */
+    font-size: 0.8rem;
+    opacity: 0.85;
+    transition: transform .22s ease;
+}
+.footer-details[open] summary:after{
+    transform: rotate(-180deg);
+}
+
+.footer-links li{padding: .18rem 0}
+.footer-link{color:var(--footer-text);text-decoration:none;opacity:.95}
+.footer-link:hover{text-decoration:underline;color:var(--footer-accent)}
+
+.footer-contact p{color:var(--footer-text);opacity:.95}
+.footer-icon{color:var(--footer-accent)}
+
+.footer-logo{width:48px;height:auto}
+.footer-brand h5{color:var(--footer-text)}
+.footer-description{color:var(--footer-text);opacity:.9}
+
+.footer-divider{border-color:rgba(255,255,255,0.06)}
+.footer-copyright{color:rgba(255,255,255,0.65)}
+.footer-dev-text{color:rgba(255,255,255,0.65)}
+.footer-dev-link{color:var(--footer-text)}
+
+.whatsapp-float{position:fixed;right:18px;bottom:18px;background:#25D366;color:#fff;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,0.18);z-index:1200}
+.whatsapp-float i{font-size:20px}
+
+/* Larger screens: show like columns — ensure details are open by default via script, but tweak spacing */
+@media(min-width:768px){
+    .footer-details summary{cursor:default}
+    .footer-details summary:after{display:none}
+    .footer-links{margin-top:8px}
+}
+
+/* Reduce default focus outline noise */
+.footer-details summary:focus{outline:none}
+
+/* Accessibility tweaks */
+.footer-links a:focus{outline:2px dashed var(--footer-accent);outline-offset:3px}
+
+/* Make sure footer has comfortable spacing on small screens */
+.footer-gradient{padding-top:2.5rem;padding-bottom:2.5rem}
+
+/* Slightly bolder social icons */
+.footer-social-link i{font-size:16px;color:var(--footer-text);opacity:.95}
+
+/* Improve touch target for summary */
+.footer-details summary{padding:8px 0}

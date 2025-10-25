@@ -1,0 +1,84 @@
+/* Variables CSS y configuración base para JK Jackets */
+
+:root {
+    /* Colores JK Jackets - Negro, Dorado y Blanco */
+    --primary-color: #000000; /* Negro principal */
+    --secondary-color: #1a1a1a; /* Negro suave */
+    --accent-color: #d4af37; /* Dorado JK */
+    --gold-light: #f4e4bc; /* Dorado claro */
+    --gold-dark: #b8860b; /* Dorado oscuro */
+    --white-color: #ffffff; /* Blanco puro */
+    --light-gray: #f8f9fa; /* Gris muy claro */
+    --medium-gray: #6c757d; /* Gris medio */
+    --dark-gray: #343a40; /* Gris oscuro */
+    
+    /* Gradientes JK Jackets */
+    --gradient-gold: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+    --gradient-black: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+    --gradient-primary: var(--gradient-gold);
+    
+    /* Colores para modalidades - Solo negro, dorado y blanco */
+    --mayorista-color: #d4af37; /* Dorado para mayorista */
+    --unidad-color: #000000; /* Negro para unidad */
+    --pack-color: #1a1a1a; /* Negro suave para packs */
+    
+    /* Colores del sistema */
+    --success-color: #28a745;
+    --info-color: #17a2b8;
+    --warning-color: #d4af37;
+    --danger-color: #dc3545;
+    --light-color: #ffffff;
+    --dark-color: #000000;
+    
+    /* Colores adicionales */
+    --whatsapp-color: #25D366;
+    --whatsapp-hover: #128C7E;
+}
+
+/* Gradientes JK Jackets */
+.bg-gradient-primary {
+    background: var(--gradient-primary);
+}
+
+.bg-gradient-gold {
+    background: var(--gradient-gold);
+}
+
+.bg-gradient-black {
+    background: var(--gradient-black);
+}
+
+/* Colores de texto */
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.text-gold {
+    color: var(--accent-color) !important;
+}
+
+.text-mayorista {
+    color: var(--mayorista-color) !important;
+}
+
+.text-unidad {
+    color: var(--unidad-color) !important;
+}
+
+/* Badges para modalidades */
+.badge-mayorista {
+    background-color: var(--mayorista-color) !important;
+    color: white !important;
+}
+
+.badge-unidad {
+    background-color: var(--unidad-color) !important;
+    color: white !important;
+}
+
+.badge-pack {
+    background-color: var(--pack-color) !important;
+    color: white !important;
+}
+
+

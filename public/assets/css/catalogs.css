@@ -1,0 +1,90 @@
+/* catalogs.css - improved catalog cards, mini-preview overlay and animations */
+:root{
+  --accent: #d4af37;
+  --muted: #6c757d;
+  --card-bg: #fff;
+}
+
+.catalog-card{
+  border: 1px solid rgba(212,175,55,0.12);
+  box-shadow: 0 8px 24px rgba(16,24,40,0.04);
+  background: var(--card-bg);
+  transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease, opacity .6s ease;
+  position: relative;
+  overflow: visible;
+}
+.catalog-card.reveal{ opacity:0; transform: translateY(10px) scale(.998); }
+.catalog-card.is-visible{ opacity:1; transform: translateY(0) scale(1); }
+.catalog-card:hover{ transform: translateY(-6px); box-shadow: 0 22px 46px rgba(16,24,40,0.08); border-color: rgba(212,175,55,0.24); }
+
+.pdf-icon{ width:64px; height:64px; display:flex; align-items:center; justify-content:center; border-radius:12px; background: linear-gradient(135deg,#f6d365,#d4af37); color:#111; margin-right:12px }
+
+.preview-btn{ background: rgba(16,24,40,0.04); border: 1px solid rgba(16,24,40,0.06); }
+
+/* Hover mini-preview box (desktop only) */
+.catalog-hover-preview{ position: absolute; right: 18px; top: 50%; transform: translateY(-50%); width: 0; height: 0; pointer-events: none; transition: width .18s ease, height .18s ease, opacity .18s ease; z-index: 20; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(2,6,23,0.08); }
+.catalog-hover-preview.visible{ width: 220px; height: 140px; pointer-events: auto; opacity: 1; }
+.catalog-hover-preview iframe{ width:100%; height:100%; border-radius:8px; border:0; display:block; }
+
+/* Skeleton shown while PDF iframe loads to avoid black flash */
+.catalog-skel{ width:100%; height:100%; display:flex; align-items:center; justify-content:center; background: linear-gradient(180deg,#f3f3f3,#fafafa); }
+.skeleton-spinner{ width:36px; height:36px; border-radius:50%; border:4px solid rgba(0,0,0,0.06); border-top-color: rgba(16,24,40,0.16); animation: spin 1s linear infinite; }
+@keyframes spin{ to{ transform: rotate(360deg); } }
+
+/* Side navigation arrows for modal viewer */
+.pdf-nav-btn{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  background: rgba(2,6,23,0.6);
+  color: #fff; z-index: 40; box-shadow: 0 12px 28px rgba(2,6,23,0.28);
+  border: none; cursor: pointer; transition: transform .15s ease, background .15s ease;
+}
+.pdf-nav-btn:hover{ transform: translateY(-50%) scale(1.06); background: rgba(2,6,23,0.75); }
+.pdf-nav-left{ left: 8px; }
+.pdf-nav-right{ right: 8px; }
+
+/* Animations for page turn using transform */
+.page-overlay{ position:absolute; top:0; left:0; width:100%; height:100%; display:flex; gap:12px; align-items:center; justify-content:center; z-index:35; pointer-events:none; }
+.page-overlay img{ box-shadow: 0 18px 48px rgba(2,6,23,0.12); border-radius:6px; }
+
+/* when animating out */
+.anim-out-left{ transform: translateX(-120%); opacity:0; transition: transform 520ms cubic-bezier(.2,.9,.2,1), opacity 320ms ease; }
+.anim-out-right{ transform: translateX(120%); opacity:0; transition: transform 520ms cubic-bezier(.2,.9,.2,1), opacity 320ms ease; }
+
+/* animate canvases in */
+.canvas-slide-in-left{ transform: translateX(-120%); opacity:0; }
+.canvas-slide-in-right{ transform: translateX(120%); opacity:0; }
+.canvas-anim-enter{ transition: transform 520ms cubic-bezier(.2,.9,.2,1), opacity 320ms ease; transform: translateX(0); opacity:1; }
+
+
+/* Modal tweaks */
+#catalogPreviewModal .modal-body{ background: #f8f9fa; }
+#catalogPreviewModal .modal-content{ border-radius:12px; overflow:hidden; }
+
+/* Responsive */
+@media (max-width:991px){
+  .catalog-hover-preview{ display:none !important; }
+}
+
+@media (max-width:991px){
+  .pdf-nav-btn{ display:none; }
+}
+
+/* small utility */
+.catalog-card .mt-2 .btn{ min-width:90px; }
+
+/* subtle page header animation */
+.page-header-minimal{ transition: background 400ms ease; }
+
+/* Make buttons consistent */
+.btn-outline-primary{ border-radius:8px; }
+.btn-sm{ border-radius:8px; }
+
+/* Accessibility focus */
+.preview-btn:focus, .btn-outline-primary:focus, .btn-primary:focus{ outline: none; box-shadow: 0 10px 30px rgba(16,185,166,0.08); }
+
