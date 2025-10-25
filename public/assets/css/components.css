@@ -1916,6 +1916,49 @@ section[style*="background: #f8f9fa"] .section-container {
 .carousel-btn.prev { left: 8px; }
 .carousel-btn.next { right: 8px; }
 
+/* Featured grid (estética limpia con imágenes grandes) */
+.featured-grid .featured-image {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* square image area */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.06);
+  background: #ffffff;
+}
+
+.featured-product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.featured-image:hover .featured-product-img {
+  transform: scale(1.03);
+}
+
+.featured-product-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+}
+
+.featured-price {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #6c757d;
+}
+
+@media (max-width: 768px) {
+  .featured-grid .col-6 { flex: 0 0 50%; max-width: 50%; }
+}
+
+
 /* Estilos específicos para botones de carrusel de productos destacados */
 .featured-prev, .featured-next { 
   position: absolute;
